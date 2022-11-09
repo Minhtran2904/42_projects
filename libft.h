@@ -6,15 +6,20 @@
 /*   By: mitran <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:31:10 by mitran            #+#    #+#             */
-/*   Updated: 2022/10/25 15:31:44 by mitran           ###   ########.fr       */
+/*   Updated: 2022/11/09 11:14:50 by mitran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
 int		ft_atoi(const char *str);
 int		ft_isalpha(int c);
@@ -29,7 +34,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strchr(const char *s, int c);
-char	*ft_strtrim(char const *s1, char const *set);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_itoa(int n);
 int		ft_isalnum(int i);
@@ -51,5 +55,6 @@ void	*ft_calloc(size_t count, size_t size);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	**ft_split(char const *s, char c);
 char	*ft_strrchr(const char *s, int c);
+t_list	*ft_lstnew(void *content);
 
 #endif

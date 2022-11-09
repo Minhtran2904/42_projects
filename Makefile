@@ -24,6 +24,10 @@ OBJ = ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_strlen
 		ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_striteri.o \
 		ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o
 
+BONUS = ft_lstnew.c
+
+BONUS_OBJ = ft_lstnew.o
+
 COMPILE = cc -Wextra -Werror -Wall -c
 
 RANLIB = ranlib $(NAME)
@@ -36,11 +40,15 @@ $(NAME):
 	$(RANLIB)
 
 clean:
-	/bin/rm -f $(OBJ)
+	/bin/rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+bonus:	$(BONUS_OBJ)
+	ar rc $(NAME) $(BONUS_OBJ)
+	$(RANLIB)
+
+.PHONY: all clean fclean re bonus
