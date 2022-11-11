@@ -18,7 +18,7 @@ void	*ft_calloc(size_t count, size_t size)
 
 	if (count == 0 || size == 0)
 	{
-		ft_calloc(1, 1);
+		return (ft_calloc(1, 1));
 	}
 	if ((count * size) % size != 0)
 	{
