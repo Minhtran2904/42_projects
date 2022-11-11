@@ -46,17 +46,14 @@ static	int	count_size(const char *s, char c, int i)
 	return (size);
 }
 
-static void	ft_checknfree(char **results, int j)
+static int	ft_checknfree(char **results, int j)
 {
-	if (!results)
+	while (j-- > 0)
 	{
-		while (j-- > 0)
-		{
-			free(results[j]);
-		}
-		free(results);
+		free(results[j]);
 	}
-	return ;
+	free(results);
+	return (0);
 }
 
 char	**ft_split(const char *s, char c)
@@ -79,7 +76,8 @@ char	**ft_split(const char *s, char c)
 			i++;
 		size = count_size(s, c, i);
 		results[j] = ft_substr(s, i, size);
-		ft_checknfree(results, j);
+		if (!results[j])
+			return (ft_checknfree(results, j));
 		i += size;
 	}
 	results[j] = 0;
