@@ -23,12 +23,10 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	srs = (char *)src;
 	if ((dst != NULL || src != NULL || (dst != NULL && src != NULL)))
 	{
+		while (i < n)
 		{
-			while (i < n)
-			{
-				des[i] = srs[i];
-				i++;
-			}
+			des[i] = srs[i];
+			i++;
 		}
 	}
 	return (des);

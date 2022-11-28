@@ -46,7 +46,7 @@ static	int	count_size(const char *s, char c, int i)
 	return (size);
 }
 
-static int	ft_checknfree(char **results, int j)
+static char	**ft_checknfree(char **results, int j)
 {
 	while (j-- > 0)
 	{
